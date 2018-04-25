@@ -30,6 +30,22 @@ public class PasswordValidationRuleRegexTest {
     @Qualifier("AlphaNumericRule")
     ValidationRule alphaNumericRuleRegex;
 
+    @Autowired
+    @Qualifier("AlphaRule")
+    ValidationRule alphaRuleRegex;
+
+    @Autowired
+    @Qualifier("NumericRule")
+    ValidationRule numericRuleRegex;
+
+    @Autowired
+    @Qualifier("LengthRule")
+    ValidationRule lengthRuleRegex;
+
+    @Autowired
+    @Qualifier("CharSequenceRule")
+    ValidationRule charSeqRuleRegex;
+
     ValidationRule testValidationRule;
 
     @Rule
@@ -54,9 +70,29 @@ public class PasswordValidationRuleRegexTest {
         assertFalse("Empty Password", alphaNumericRuleRegex.validate("").isSuccess());
     }
 
-    @After
-    public void tearDown() {
-        testValidationRule = null;
+    @Test
+    public void testAlphaNumRulePassword(){
+        assertTrue("Valid password :" ,alphaNumericRuleRegex.validate("sridhar123").isSuccess() );
+    }
+
+    @Test
+    public void testAlphaRulePassword(){
+        assertTrue("Valid password :" ,alphaRuleRegex.validate("sridhar123").isSuccess() );
+    }
+
+    @Test
+    public void testNumRulePassword(){
+        assertTrue("Valid password :" ,numericRuleRegex.validate("sridhar123").isSuccess() );
+    }
+
+    @Test
+    public void testLengthRulePassword(){
+        assertTrue("Valid password :" ,lengthRuleRegex.validate("sridhar123").isSuccess() );
+    }
+
+    @Test
+    public void testCharSeqRulePassword(){
+        assertTrue("Valid password :" ,charSeqRuleRegex.validate("sridhar123").isSuccess() );
     }
 
 }
