@@ -26,8 +26,8 @@ public class PasswordValidationRuleRegex extends AbstractPasswordValidationRule 
 	 * @param validationRuleName
 	 * @param validationMessage
 	 */
-	public PasswordValidationRuleRegex(String regex, String validationRuleName, String validationMessage) {
-		super(validationRuleName, validationMessage);
+	public PasswordValidationRuleRegex(String regex, String validationRuleName, String validationMessage, boolean isEnabled) {
+		super(validationRuleName, validationMessage,isEnabled);
 		this.regex = regex;
 	}
 

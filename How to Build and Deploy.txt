@@ -1,0 +1,15 @@
+How to run the service
+=======================
+* Unzip the password-validation-manager.zip content to a folder.
+* Import the source code to any IDE like eclipse or intelliJ.
+* Build the project using the following Maven command.
+  mvn clean install
+* Maven commands can also be run from command line move to the parent directory and run the command.
+* The jar will be created in your .m2 directory
+* The password-validation-manager application can be run as a console application using the
+  PasswordValidationClient.
+* The application configured with maven exec plugin to run the application.
+* You can run the client by passing password as argument with maven exec plugin
+  mvn exec:java -Dpassword=password123
+
+Detailed description about the application can be found README.md.

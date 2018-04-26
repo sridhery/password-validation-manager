@@ -11,7 +11,8 @@
 
 * We continue to validate password with other rules when one of the rules is failed. 
 * No need to consider order of rules
-* Internationalization is not required for this application
+* Internationalization is not considered for this application
+* Problem statements ambiguous in some areas like "Must be between 5 and 12 characters in length." I am not sure here whether to 5 and 12 or included or not. 
  
  
  ### IMPLEMENTATION
@@ -21,5 +22,14 @@
    `mvn clean test` will run all unit tests and Jacoco output report will be generated in target directory under jacoco-ut folder 
  * `ValidationRule` is the interface we need to implement to add a new validation rule.
  * `PasswordValidationService` is the service where we inject all the validation rules.
- * All the validation rules are driven from a validation-rules.properties file which can be used to configure the rule name and rule regex.
+ * All the validation rules are driven from a validation-rules.properties.
+ * validation-rules.properties used for configuring the Rule Regex, Rule Name, Rule Message, Rule Enable.
+ * Rules can be and enabled disabled using the respective properties.
+ * To meet the first problem statement 3 Individual Regex combinations were used so disable all or enable all of them.
+ * Change the respective regex values in the validation-rules.properties for any future validation changes.
+ 
+  
+ 
+ 
+ 
  

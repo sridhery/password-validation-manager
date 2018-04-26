@@ -16,6 +16,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -46,23 +47,38 @@ public class PasswordValidationRuleRegexTest {
     @Qualifier("CharSequenceRule")
     ValidationRule charSeqRuleRegex;
 
-    ValidationRule testValidationRule;
+    ValidationRule testValidationRuleEmptyRegex, testValidationRuleRegex;
+
+    private static final String ERROR_MSG = "Regex cannot be null or empty.";
+
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
     @Before
     public void setUp() {
-        testValidationRule = new PasswordValidationRuleRegex("", "testEmptyRegexRule", "Regex cannot be null or empty" +
-                ".");
+        testValidationRuleEmptyRegex = new PasswordValidationRuleRegex("", "testEmptyRegexRule", ERROR_MSG, true);
+        testValidationRuleRegex = new PasswordValidationRuleRegex(".{3,10}","testLengthRuleRegex",null,true);
     }
 
     @Test
     public void testPasswordEmpty() {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Regex cannot be null or empty.");
-        testValidationRule.validate("sridhar123");
+        testValidationRuleEmptyRegex.validate("sridhar123");
 
+    }
+
+    @Test
+    public void testGetRuleRegex(){
+        ((PasswordValidationRuleRegex)testValidationRuleRegex).setRegex(".{8,16}");
+        assertEquals(".{8,16}",((PasswordValidationRuleRegex)testValidationRuleRegex).getRegex());
+    }
+
+    @Test
+    public void testRuleEnabled(){
+
+        assertTrue("Rule Enabled : ",testValidationRuleRegex.isRuleEnabled());
     }
 
     @Test

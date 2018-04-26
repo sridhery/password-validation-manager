@@ -15,11 +15,8 @@ public abstract class AbstractPasswordValidationRule implements ValidationRule {
 	
 	private String validationRuleName;
 	private String validationMessage;
+	private boolean isEnabled;
 
-	
-	public AbstractPasswordValidationRule(){
-		// Default constructor
-	}
 	
 	/**
 	 * Parameterized constructor
@@ -27,9 +24,10 @@ public abstract class AbstractPasswordValidationRule implements ValidationRule {
 	 * @param validationRuleName
 	 * @param validationMessage
 	 */
-	public AbstractPasswordValidationRule(String validationRuleName, String validationMessage){
+	public AbstractPasswordValidationRule(String validationRuleName, String validationMessage, boolean isEnabled){
 		this.validationRuleName = validationRuleName;
 		this.validationMessage = validationMessage;
+        this.isEnabled = isEnabled;
 	}
 	
 	/**
@@ -55,4 +53,9 @@ public abstract class AbstractPasswordValidationRule implements ValidationRule {
 	 * @return
 	 */
 	public abstract boolean validatePassword(String password);
+
+    @Override
+    public boolean isRuleEnabled() {
+        return isEnabled;
+    }
 }

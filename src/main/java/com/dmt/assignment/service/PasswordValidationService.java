@@ -37,7 +37,9 @@ public class PasswordValidationService implements ValidationService {
 		}
 		List<ValidationRuleResult> validationRuleResults = new ArrayList();
 		for (ValidationRule rule : getValidationRules()) {
-			validationRuleResults.add(rule.validate(password));
+			if(rule.isRuleEnabled()) {
+				validationRuleResults.add(rule.validate(password));
+			}
 		}
 		return validationRuleResults;
 	}
