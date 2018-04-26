@@ -21,7 +21,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
- * @author Sridhar Yamsani
+ * Test class for executing all the unit test cases for PasswordValidationRuleRegex class
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfig.class, loader = AnnotationConfigContextLoader.class)
@@ -62,7 +62,7 @@ public class PasswordValidationRuleRegexTest {
     }
 
     @Test
-    public void testPasswordEmpty() {
+    public void testRegexEmpty() {
         thrown.expect(IllegalArgumentException.class);
         thrown.expectMessage("Regex cannot be null or empty.");
         testValidationRuleEmptyRegex.validate("sridhar123");

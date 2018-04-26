@@ -4,7 +4,7 @@
 package com.dmt.assignment.rules;
 
 /**
- * Implement this validation rule to provide a new validation rule
+ * Base Interface for implementing validation rules
  */
 public interface ValidationRule {
 
@@ -17,6 +17,11 @@ public interface ValidationRule {
 	 */
 	ValidationRuleResult validate(String str);
 
+    /**
+     * Returns the boolean value to know the rule enable status
+     *
+     * @return boolean
+     */
 	boolean isRuleEnabled();
 
 }

@@ -29,10 +29,13 @@ public abstract class AbstractPasswordValidationRule implements ValidationRule {
 		this.validationMessage = validationMessage;
         this.isEnabled = isEnabled;
 	}
-	
-	/**
-	 * Default implementation for the password string validation
-	 */
+
+    /**
+     * Default implementation for the password string validation
+     *
+     * @param password - Input password string
+     * @return ValidationRuleResult - Validation Rule Result Object
+     */
 	public ValidationRuleResult validate(String password) {
 		LOGGER.debug("Validating password with {} validation rule", validationRuleName);
 		boolean isSuccess = validatePassword(password);
@@ -54,7 +57,11 @@ public abstract class AbstractPasswordValidationRule implements ValidationRule {
 	 */
 	public abstract boolean validatePassword(String password);
 
-    @Override
+    /**
+     *  This method returns the boolean value of the Rule Enable
+     * @return boolean
+     */
+	@Override
     public boolean isRuleEnabled() {
         return isEnabled;
     }

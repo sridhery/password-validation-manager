@@ -15,7 +15,7 @@ import com.dmt.assignment.rules.ValidationRule;
 import com.dmt.assignment.rules.ValidationRuleResult;
 
 /**
- * @author Sridhar Yamsani
+ * This is the main service class where list of available validations get executed.
  *
  */
 public class PasswordValidationService implements ValidationService {
@@ -45,6 +45,8 @@ public class PasswordValidationService implements ValidationService {
 	}
 
 	/**
+	 * Returns the list of validation rules
+	 *
 	 * @return the validationRules
 	 */
 	public List<ValidationRule> getValidationRules() {

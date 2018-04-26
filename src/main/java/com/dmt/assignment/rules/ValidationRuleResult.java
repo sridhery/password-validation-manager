@@ -4,7 +4,7 @@
 package com.dmt.assignment.rules;
 
 /**
- * @author Sridhar Yamsani
+ * This class holds the validation rule results
  *
  */
 public class ValidationRuleResult {

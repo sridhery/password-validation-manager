@@ -20,7 +20,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 /**
- * @author Sridhar Yamsani
+ * Test class for executing all the unit test cases for PasswordValidationService class
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfig.class, loader = AnnotationConfigContextLoader.class)

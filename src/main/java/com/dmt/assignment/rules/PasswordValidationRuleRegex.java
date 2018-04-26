@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * @author Sridhar Yamsani
+ * This is the main validation rule class where all the password validations are get executed
  *
  */
 public class PasswordValidationRuleRegex extends AbstractPasswordValidationRule {
@@ -51,6 +51,7 @@ public class PasswordValidationRuleRegex extends AbstractPasswordValidationRule 
 	}
 
 	/**
+	 * Getter method for retrieving the regex
 	 * @return the regex
 	 */
 	public String getRegex() {
@@ -58,6 +59,7 @@ public class PasswordValidationRuleRegex extends AbstractPasswordValidationRule 
 	}
 
 	/**
+	 * Setter method for setting the regex
 	 * @param regex
 	 *            the regex to set
 	 */

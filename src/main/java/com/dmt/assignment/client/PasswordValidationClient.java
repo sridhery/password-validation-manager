@@ -28,7 +28,7 @@ public class PasswordValidationClient {
     public static void main(String[] args) {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
         ValidationService validationService = ctx.getBean(PasswordValidationService.class);
-        List<ValidationRuleResult> validationRuleResults = validationService.execute("Sridhar123");
+        List<ValidationRuleResult> validationRuleResults = validationService.execute(args[0]);
         for (ValidationRuleResult validationRuleResult : validationRuleResults) {
             LOGGER.info(String.format("Password validation rule name: | %s  | Status: | %s | Message:| %s%n |",
                     validationRuleResult.getValidationRuleName(),validationRuleResult.isSuccess(), validationRuleResult.getValidationMessage()));
