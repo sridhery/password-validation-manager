@@ -1,60 +1,45 @@
 /**
- * 
+ *
  */
 package com.dmt.assignment.rules;
 
 /**
- * This class holds the validation rule results
- *
+ * This is an immutable class which holds the validation rule results.
  */
-public class ValidationRuleResult {
+public final class ValidationRuleResult {
 
-	private String validationRuleName;
-	private String validationMessage;
-	private boolean success;
+    private String validationRuleName;
+    private String validationMessage;
+    private boolean success;
 
-	/**
-	 * @return the validationMessage
-	 */
-	public String getValidationMessage() {
-		return validationMessage;
-	}
+    public ValidationRuleResult(String validationRuleName, boolean success, String validationMessage) {
+        this.validationRuleName = validationRuleName;
+        this.validationMessage = validationMessage;
+        this.success = success;
+    }
 
-	/**
-	 * @param validationMessage
-	 *            the validationMessage to set
-	 */
-	public void setValidationMessage(String validationMessage) {
-		this.validationMessage = validationMessage;
-	}
+    /**
+     * @return the validationMessage
+     */
+    public String getValidationMessage() {
+        return validationMessage;
+    }
 
-	/**
-	 * @return the success
-	 */
-	public boolean isSuccess() {
-		return success;
-	}
 
-	/**
-	 * @param success
-	 *            the success to set
-	 */
-	public void setSuccess(boolean success) {
-		this.success = success;
-	}
+    /**
+     * @return the success
+     */
+    public boolean isSuccess() {
+        return success;
+    }
 
-	/**
-	 * @return the validationRuleName
-	 */
-	public String getValidationRuleName() {
-		return validationRuleName;
-	}
 
-	/**
-	 * @param validationRuleName the validationRuleName to set
-	 */
-	public void setValidationRuleName(String validationRuleName) {
-		this.validationRuleName = validationRuleName;
-	}
+    /**
+     * @return the validationRuleName
+     */
+    public String getValidationRuleName() {
+        return validationRuleName;
+    }
+
 
 }
