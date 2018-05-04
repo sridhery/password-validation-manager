@@ -30,7 +30,7 @@ public class PasswordValidationClient {
         ValidationService validationService = ctx.getBean(PasswordValidationService.class);
         List<ValidationRuleResult> validationRuleResults = validationService.execute(args[0]);
         for (ValidationRuleResult validationRuleResult : validationRuleResults) {
-            LOGGER.info(String.format("Password validation rule name: | %s  | Status: | %s | Message:| %s%n |",
+            LOGGER.info(String.format("Password validation rule name:  %s  | Status:  %s | Message: %s%n |",
                     validationRuleResult.getValidationRuleName(),validationRuleResult.isSuccess(), validationRuleResult.getValidationMessage()));
         }
 

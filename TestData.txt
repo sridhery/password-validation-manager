@@ -1,0 +1,56 @@
+## Alphanumeric validation test data
+sridhar123
+password123
+123password
+pass123word
+pa$sword1
+#pa$sword1
+PASS123
+PASSWORD
+PASS&^#$WORD
+password
+123456
+123    456
+abc    def
+    def
+abc
+
+'a'
+
+## Password Char Sequence Validation Test Data
+
+sridsri12
+sridhar12
+ssridsri12
+sriridi
+srisri
+srisri1
+srisris
+ssrisri
+1srisri
+sridsrid12
+sridharsridhar
+asr@sr@1
+@@@@@@
+
+123123
+ab    12se
+      12se
+12sr
+
+## Password Length Rule Validation Test Data
+
+sridhar123
+a234
+abcdefghijklm
+a2345
+a2 45
+
+abcdefghijkl
+abcdef
+#%$%$#%$#%#
+              abc12
+12s
+12s                 sa
+dfd435$#^%$#
+afs435$#^%$#

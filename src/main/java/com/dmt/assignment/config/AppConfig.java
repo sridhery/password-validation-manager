@@ -10,10 +10,11 @@ import com.dmt.assignment.service.PasswordValidationService;
 import com.dmt.assignment.service.ValidationService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.io.ClassPathResource;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,45 +23,48 @@ import java.util.List;
  * @author Sridhar Yamsani
  */
 @Configuration
-@PropertySource({"classpath:validation-rules.properties"})
 public class AppConfig {
 
-    @Value("${lc.alphanum.rule.enabled}")
+    @Value("${validations.alphanumeric.enabled}")
     private boolean isAlphaNumRuleEnabled;
 
-    @Value("${lc.alphanum.rule.regex}")
+    @Value("${validations.alphanumeric.regex}")
     private String alphaNumericRuleRegex;
 
-    @Value("${lc.alphanum.rule.name}")
+    @Value("${validations.alphanumeric.name}")
     private String alphaNumericRuleName;
 
-    @Value("${lc.alphanum.rule.error.msg}")
+    @Value("${validations.alphanumeric.message}")
     private String alphaNumericMsg;
 
-    @Value("${length.rule.enabled}")
+    @Value("${validations.length.enabled}")
     private boolean isLengthRuleEnabled;
 
-    @Value("${length.rule.regex}")
+    @Value("${validations.length.regex}")
     private String lengthRuleRegex;
 
-    @Value("${length.rule.name}")
+    @Value("${validations.length.name}")
     private String lengthRuleName;
 
-    @Value("${length.rule.error.msg}")
+    @Value("${validations.length.message}")
     private String lengthErrorMsg;
 
-    @Value("${char.seq.rule.enabled}")
+    @Value("${validations.charsequence.enabled}")
     private boolean isCharSeqRuleEnabled;
 
-    @Value("${char.seq.rule.name}")
+    @Value("${validations.charsequence.name}")
     private String charSequenceRuleName;
 
-    @Value("${char.seq.rule.error.msg}")
+    @Value("${validations.charsequence.message}")
     private String charSequenceErrorMsg;
 
     @Bean
-    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
+    public static PropertySourcesPlaceholderConfigurer properties() {
+        PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
+        YamlPropertiesFactoryBean yaml = new YamlPropertiesFactoryBean();
+        yaml.setResources(new ClassPathResource("validation-rules.yml"));
+        propertySourcesPlaceholderConfigurer.setProperties(yaml.getObject());
+        return propertySourcesPlaceholderConfigurer;
     }
 
     @Bean

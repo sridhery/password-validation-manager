@@ -55,8 +55,23 @@ public class AlphaNumericRuleTest {
     }
 
     @Test
+    public void testPasswordWithSpecialCharFirst() {
+        assertFalse("Special Chars not allowed :", alphaNumericRuleRegex.validate("#pa$sword1").isSuccess());
+    }
+
+    @Test
     public void testPasswordWithCaps() {
         assertFalse("Capital letters not allowed :", alphaNumericRuleRegex.validate("PASS123").isSuccess());
+    }
+
+    @Test
+    public void testPasswordWithCapsOnly() {
+        assertFalse("Capital letters not allowed :", alphaNumericRuleRegex.validate("PASSWORD").isSuccess());
+    }
+
+    @Test
+    public void testPasswordWithCapsNSpecialChars() {
+        assertFalse("Capital letters not allowed :", alphaNumericRuleRegex.validate("PASS&^#$WORD").isSuccess());
     }
 
     @Test

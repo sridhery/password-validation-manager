@@ -11,5 +11,6 @@ How to run the service
 * The application configured with maven exec plugin to run the application.
 * You can run the client by passing password as argument with maven exec plugin
   mvn exec:java -Dpassword=password123
+* TestData.txt file contains the test data used for testing this application.
 
 Detailed description about the application can be found README.md.

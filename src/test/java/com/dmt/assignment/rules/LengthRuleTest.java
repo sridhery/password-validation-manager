@@ -89,4 +89,14 @@ public class LengthRuleTest {
         assertFalse("Invalid password length:", lengthRuleRegex.validate("                        ").isSuccess());
     }
 
+    @Test
+    public void testPasswordLengthMixCharsBlank() {
+        assertFalse("Invalid password length:", lengthRuleRegex.validate("dfd435$#^%$# ").isSuccess());
+    }
+
+    @Test
+    public void testPasswordLengthMixChars() {
+        assertTrue("Valid password length with mix of alphanumerics and special chars:", lengthRuleRegex.validate("afs435$#^%$#").isSuccess());
+    }
+
 }

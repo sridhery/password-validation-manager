@@ -35,61 +35,82 @@ public class CharSequenceRuleTest {
 
     @Test
     public void testPasswordForSeqNotImmediate() {
-        assertTrue("Valid password sequence:", charSeqRuleRegex.validate("sridsri12").isSuccess());
+        assertTrue("Valid password with sequence not immediate:", charSeqRuleRegex.validate("sridsri12").isSuccess());
     }
 
     @Test
     public void testPasswordForSingleCharSeq() {
-        assertTrue("Valid password sequence:", charSeqRuleRegex.validate("ssridsri12").isSuccess());
+        assertTrue("Valid password with single char sequence:", charSeqRuleRegex.validate("ssridsri12").isSuccess());
+    }
+
+
+    @Test
+    public void testPasswordForTwoCharSeq() {
+        assertFalse("Invalid password three char sequence:", charSeqRuleRegex.validate("sriridi").isSuccess());
     }
 
     @Test
-    public void testPasswordForSeq() {
-        assertFalse("Invalid password sequence:", charSeqRuleRegex.validate("srisri").isSuccess());
+    public void testPasswordForThreeCharSeq() {
+        assertFalse("Invalid password three char sequence:", charSeqRuleRegex.validate("srisri").isSuccess());
     }
 
     @Test
     public void testPasswordForSeqWithTrailingNum() {
-        assertFalse("Invalid password sequence:", charSeqRuleRegex.validate("srisri1").isSuccess());
+        assertFalse("Invalid password sequence with trailing number:", charSeqRuleRegex.validate("srisri1").isSuccess());
     }
 
     @Test
     public void testPasswordForSeqWithTrailingChar() {
-        assertFalse("Invalid password sequence:", charSeqRuleRegex.validate("srisris").isSuccess());
+        assertFalse("Invalid password sequence with trailing char:", charSeqRuleRegex.validate("srisris").isSuccess());
     }
 
     @Test
     public void testPasswordForSeqWithLeadingChar() {
-        assertFalse("Invalid password sequence:", charSeqRuleRegex.validate("ssrisri").isSuccess());
+        assertFalse("Invalid password sequence with leading char:", charSeqRuleRegex.validate("ssrisri").isSuccess());
     }
 
     @Test
     public void testPasswordForSeqWithLeadingNum() {
-        assertFalse("Invalid password sequence:", charSeqRuleRegex.validate("1srisri").isSuccess());
+        assertFalse("Invalid password sequence with leading number:", charSeqRuleRegex.validate("1srisri").isSuccess());
     }
 
     @Test
     public void testPasswordForFourCharSeq() {
-        assertFalse("Invalid password sequence:", charSeqRuleRegex.validate("sridsrid12").isSuccess());
+        assertFalse("Invalid four char sequence password:", charSeqRuleRegex.validate("sridsrid12").isSuccess());
     }
 
     @Test
     public void testPasswordForSixCharSeq() {
-        assertFalse("Invalid password sequence:", charSeqRuleRegex.validate("sridharsridhar").isSuccess());
+        assertFalse("Invalid six char sequence password:", charSeqRuleRegex.validate("sridharsridhar").isSuccess());
     }
 
     @Test
     public void testPasswordForMixCharSeq() {
-        assertFalse("Invalid password sequence:", charSeqRuleRegex.validate("asr@sr@1").isSuccess());
+        assertFalse("Invalid mix char sequence password:", charSeqRuleRegex.validate("asr@sr@1").isSuccess());
     }
 
     @Test
     public void testPasswordForSpecialCharSeq() {
-        assertFalse("Invalid password sequence:", charSeqRuleRegex.validate("@@@@@@").isSuccess());
+        assertFalse("Invalid special char sequence password:", charSeqRuleRegex.validate("@@@@@@").isSuccess());
     }
 
     @Test
     public void testPasswordForNumericSeq() {
-        assertFalse("Invalid password sequence:", charSeqRuleRegex.validate("123123").isSuccess());
+        assertFalse("Invalid numeric sequence password:", charSeqRuleRegex.validate("123123").isSuccess());
+    }
+
+    @Test
+    public void testPasswordForBlankSeq() {
+        assertFalse("Invalid white space sequence password:", charSeqRuleRegex.validate("ab    12se").isSuccess());
+    }
+
+    @Test
+    public void testPasswordForLeadingBlankSeq() {
+        assertFalse("Invalid white space sequence password:", charSeqRuleRegex.validate("      12se").isSuccess());
+    }
+
+    @Test
+    public void testPasswordForTrailingBlankSeq() {
+        assertFalse("Invalid white space sequence password:", charSeqRuleRegex.validate("12sr        ").isSuccess());
     }
 }

@@ -1,0 +1,23 @@
+#-----------------------------------------------------------------------------------------------
+# This yaml file drives all the password validation rules configuration.
+# Under validations the specific validation rule types are defined.
+# Each validation rules has some properties like name, enabled etc.
+# The enabled property can be used for enabling or disabling the validation.
+# Note: Any change in the properties values will impact the application behavior.
+#------------------------------------------------------------------------------------------------
+
+validations:
+  alphanumeric:
+    name: AlphaNumericRule
+    regex: ^(?=.*\d)(?=.*[a-z])[a-z0-9]*$
+    message: Must consist of a mixture of lowercase letters and numerical digits only, with at least one of each.
+    enabled: true
+  length:
+      name: LengthRule
+      regex: .{5,12}
+      message: Must be between 5 and 12 characters in length.
+      enabled: true
+  charsequence:
+      name: CharSequenceRule
+      message: Must not contain any sequence of characters immediately followed by the same sequence.
+      enabled: true
