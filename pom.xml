@@ -13,7 +13,7 @@
         <slf4j.version>1.7.25</slf4j.version>
         <junit.version>4.12</junit.version>
         <jacoco.version>0.7.5.201505241946</jacoco.version>
-        <password>srsridhar123</password>
+        <password>sridhar123</password>
     </properties>
 
 

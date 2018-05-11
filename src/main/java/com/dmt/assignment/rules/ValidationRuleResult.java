@@ -8,9 +8,9 @@ package com.dmt.assignment.rules;
  */
 public final class ValidationRuleResult {
 
-    private String validationRuleName;
-    private String validationMessage;
-    private boolean success;
+    private final String validationRuleName;
+    private final String validationMessage;
+    private final boolean success;
 
     public ValidationRuleResult(String validationRuleName, boolean success, String validationMessage) {
         this.validationRuleName = validationRuleName;
